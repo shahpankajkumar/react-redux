@@ -19,7 +19,6 @@ const Userhomepage = () => {
 
     useEffect(()=>{
       dispatch(findUserData(email))
-     
     },[])
 
     useEffect(() => {

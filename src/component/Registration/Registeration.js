@@ -24,12 +24,13 @@ const Registeration = () => {
     const currentUser = useSelector(state => state.userReducer)
 
     const onSubmit = (datavalue) => {
-      const {name,phone,email,password} = datavalue
+      const {name, phone, email, password, role} = datavalue
       const data = {
         name:name,
         phone:phone,
         email:email,
-        password:password
+        password:password,
+        role:role
       }
         dispatch(createUser(data))
     }
@@ -95,6 +96,14 @@ const Registeration = () => {
             {...register('password', { required: true })}
           />
               {errors.password && <p> password is required.</p>}
+        </div>
+        <div className="form-group mt-3">
+          <label>Role</label>
+          <select className="form-select" name="role" {...register('role', { required: true })}>
+            <option value="employee">Employee</option>
+            <option value="manager">Manager</option>
+          </select>
+          {errors.role && <p> role is required.</p>}
         </div>
         <div className="d-grid gap-2 mt-3">
           <button type='submit' className="btn btn-primary" 

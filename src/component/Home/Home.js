@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = ({username}) => {
 
+
+  console.log("username",username);
+
   
   const dispatch = useDispatch();
 

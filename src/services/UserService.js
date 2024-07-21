@@ -1,12 +1,12 @@
 import axios from 'axios'
 const create = async(data) => {
-  let res = axios.post("http://localhost:4000/users/registaration",data);
+  let res = axios.post("http://localhost:5000/api/auth/signup",data);
  console.log("registerapi",res)
  return res
 };
 ;
 const login = async(data) => {
- let res = await axios.post("http://localhost:4000/users/login",data);
+ let res = await axios.post("http://localhost:5000/api/auth/login",data);
     localStorage.setItem('email',data.email);
    localStorage.setItem('token',res.data.token);
    console.log("loginuserapi",res)
@@ -16,7 +16,7 @@ const login = async(data) => {
 const addTask = async(data) => {
  let token = localStorage.getItem('token');
   let instance = await  axios.create({
-    baseURL: 'http://localhost:4000/users',
+    baseURL: 'http://localhost:5000/api/auth/users',
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -29,7 +29,7 @@ const addTask = async(data) => {
  const findUser = async(email) => {
   let token = localStorage.getItem('token');
    let instance = await  axios.create({
-     baseURL: 'http://localhost:4000/users',
+     baseURL: 'http://localhost:5000/users',
      headers: {
        Authorization: `Bearer ${token}`
      }
@@ -42,7 +42,7 @@ const addTask = async(data) => {
  const displayTaskApi = async(id) => {
   let token = localStorage.getItem('token');
    let instance = await  axios.create({
-     baseURL: 'http://localhost:4000/users',
+     baseURL: 'http://localhost:5000/users',
      headers: {
        Authorization: `Bearer ${token}`
      }
@@ -54,7 +54,7 @@ const addTask = async(data) => {
   const findtaskApi = async(id) => {
     let token = localStorage.getItem('token');
      let instance = await  axios.create({
-       baseURL: 'http://localhost:4000/users',
+       baseURL: 'http://localhost:5000/users',
        headers: {
          Authorization: `Bearer ${token}`
        }
@@ -66,7 +66,7 @@ const addTask = async(data) => {
     const deleteTaskApi = async(id) => {
       let token = localStorage.getItem('token');
        let instance = await  axios.create({
-         baseURL: 'http://localhost:4000/users',
+         baseURL: 'http://localhost:5000/users',
          headers: {
            Authorization: `Bearer ${token}`
          }
@@ -78,7 +78,7 @@ const addTask = async(data) => {
       const taskUpdateApi = async({id,data}) => {
         let token = localStorage.getItem('token');
          let instance = await  axios.create({
-           baseURL: 'http://localhost:4000/users',
+           baseURL: 'http://localhost:5000/users',
            headers: {
              Authorization: `Bearer ${token}`
            }
